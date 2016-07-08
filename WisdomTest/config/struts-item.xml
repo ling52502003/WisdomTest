@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="todo" extends="json-default">
+		<action name="login" class="LoginAction" method="show">
+			<result name="success">/jsp/login.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="executeLogin" class="LoginAction" method="execute">
+			<result name="success" type="chain">list</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="list" class="ListAction" method="show">
+			<result name="success">/jsp/list.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="list_json" class="ListAction" method="show">
+			<result type="json">
+				<param name="excludeProperties">.*\.user\.password,currentUser\.password</param>
+			</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="add" class="AddAction" method="show">
+			<result name="success">/jsp/add.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="add_action" class="AddAction" method="execute">
+			<result name="success" type="chain">list</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="edit" class="EditAction" method="show">
+			<result name="success">/jsp/edit.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="edit_action" class="EditAction" method="execute">
+			<result name="success" type="chain">list</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="delete" class="DeleteAction" method="show">
+			<result name="success">/jsp/delete.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="delete_action" class="DeleteAction" method="execute">
+			<result name="success" type="chain">list</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="finish" class="FinishAction" method="execute">
+			<result name="list" type="chain">list</result>
+			<result name="search" type="chain">search</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+		<action name="search" class="SearchAction" method="show">
+			<result name="success">/jsp/search.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>

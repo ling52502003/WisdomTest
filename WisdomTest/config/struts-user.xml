@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   <package name="user-default"   extends="cmall-default"   namespace="/">
+    	 <action name="getUser" class="UserAction" method="getUser">
+    		<result name="success">/index.jsp</result>
+    	 </action> 
+    	 
+    	  <action name="saveuser" class="UserAction" method="saveUser">
+    		<result name="success" type="redirect">getUser.shtml</result>
+    	 </action> 
+    	 
+    	 <action name="edituser" class="UserAction" method="editUser">
+    		<result name="success" >edit.jsp</result>
+    	 </action> 
+    	 
+    	 <action name="deluser" class="UserAction" method="deleteUser">
+    			<result name="success" type="redirect">getUser.shtml</result>
+    	 </action> 
+    </package>
+    
+</struts>
+

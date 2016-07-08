@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.co.wisdom.item.dao.ItemDao">
+	<select id="queryItemByid" parameterType="int" resultType="Item">
+		select id,name,user,expire_date,finished_date from todo_item where id=#{id}
+	</select>
+
+	<select id="queryItem" resultType="Item">
+		select id,name,user,expire_date,finished_date from todo_item
+	</select>
+	<delete id="deleteItem" parameterType="int">
+		delete from todo_item
+		where id=#{id}
+	</delete>
+	<sql id="demo_sql">
+		ID,NAME,USER,EXPIRE_DATE,FINISHED_DATE
+	</sql>
+	<insert id="insertItem" parameterType="Item">
+		INSERT INTO todo_item(
+		<include refid="demo_sql" />
+		) VALUES(null,#{name},#{user},#{expire_date},#{finished_date})
+	</insert>
+	<select id="queryItems" resultType="Item" parameterType="java.util.Map">
+		select item.id as id,item.name as name,user.name as
+		userName,item.user as user,item.expire_date as expire_date,item.finished_date as
+		finished_date from todo_item item,todo_user user
+		where user.id = item.user
+		and item.name like #{like_id}
+		and user.name like #{like_name}
+		order by #{order_key}
+	</select>
+  <update id="updateItem" parameterType="Item">
+   		update todo_item
+   		<set>
+			<if test="name != null">name=#{name},</if>
+			<if test="user != null">user=#{user},</if>
+			<if test="expire_date != null">expire_date=#{expire_date},</if>
+			finished_date=#{finished_date}
+		</set>
+		where id=#{id}
+   </update>
+</mapper>
