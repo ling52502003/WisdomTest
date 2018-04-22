@@ -21,37 +21,38 @@ import jp.co.wisdom.item.entity.UserItem;
 
 /**
  * Class Name: BaseAction.java
- * 
- * @author 
+ *
+ * @author
  * @version 1.0
  */
 public class BaseAction extends ActionSupport implements SessionAware{
 
+
 	private static final long serialVersionUID = -2983580695806850367L;
 
 	/**
-	 * 
+	 *
 	 */
 	protected ServletContext getServletContext() {
 		return ServletActionContext.getServletContext();
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	protected HttpServletRequest getRequest() {
 		return ServletActionContext.getRequest();
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	protected HttpServletResponse getResponse() {
 		return ServletActionContext.getResponse();
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	protected HttpSession getSession() {
 		return getRequest().getSession();
@@ -59,7 +60,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 取得访问域名
-	 * 
+	 *
 	 * @return
 	 */
 	public String getURL() {
@@ -68,7 +69,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 存放Cookie
-	 * 
+	 *
 	 * @param name
 	 * @param value
 	 */
@@ -81,7 +82,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 删除Cookie
-	 * 
+	 *
 	 * @param name
 	 * @param value
 	 */
@@ -94,7 +95,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * Cookie取得
-	 * 
+	 *
 	 * @return
 	 * @throws Exception
 	 */
@@ -155,7 +156,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * エラーメッセージを取得します。
-	 * 
+	 *
 	 * @return
 	 */
 	public String getErrorMessage() {
@@ -171,7 +172,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 現在のユーザを取得します。
-	 * 
+	 *
 	 * @return
 	 */
 	public UserItem getCurrentUser() {
@@ -180,7 +181,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * 現在のユーザを設定します。
-	 * 
+	 *
 	 * @param user
 	 */
 	protected void setCurrentUser(UserItem user) {
@@ -189,7 +190,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * エラーを表示します。
-	 * 
+	 *
 	 * @param errorMessage
 	 * @return
 	 */
@@ -201,7 +202,7 @@ public class BaseAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * アイテムを取得します。
-	 * 
+	 *
 	 * @param id
 	 * @return
 	 * @throws SQLException
